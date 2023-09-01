@@ -1,0 +1,219 @@
+<head>
+    <title>Diabetes Classifier</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1EA6BA;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #075757;
+            background-color: #F2FAFF;
+            border-radius: 25px;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #032624;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .input-field {
+            display: flex;
+            flex-direction: column;
+            width: 48%;
+            margin-left: 20px;
+            margin-right: 35px;
+        }
+
+        .input-field label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-field input {
+            padding: 5px;
+            border: 2px solid #032624;
+            border-radius: 5px;
+        }
+
+        .btn {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #032624;
+            border: 2px solid #032624;
+            background-color: #F2FAFF;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            color: #F2FAFF;
+            background-color: #1EA6BA;
+        }
+
+        .result {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #42cceb;
+        }
+
+        a {
+            text-decoration: none;
+            color: #F2FAFF;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #42cceb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Are you at risk of developing diabetes?</h1>
+
+        <form action="/predict" method="POST">
+            <div class="input-container">
+                <div class="input-field">
+                    <label for="PHYSHLTH">How many days during the past 30 days was your physical health not good? (0-30)</label>
+                    <input type="text" name="PHYSHLTH" required>
+                </div>
+                <div class="input-field">
+                    <label for="MENTHLTH">How many days during the past 30 days was your mental health not good? (0-30)</label>
+                    <input type="text" name="MENTHLTH" required>
+                </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-field">
+                        <label for="SLEEP">On average, how many hours of sleep do you get in a 24-hour period? (1-24)</label>
+                        <input type="text" name="SLEEP" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="AGE">How old are you? (If 80+, enter 80)</label>
+                        <input type="text" name="AGE" required>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-field">
+                        <label for="BMI">What is your Body Mass Index? (Weight in kg divided by height in m^2)</label>
+                        <input type="text" name="BMI" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="ARTHRITIS">Do you have some form of arthritis or joint issue? (Yes = 1, No = 0)</label>
+                        <input type="text" name="ARTHRITIS" required>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-field">
+                        <label for="ASTHMA">Do you have Asthma? (Yes = 1, No = 0)</label>
+                        <input type="text" name="ASTHMA" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="EXERCISE">Have you exercised in the last 30 days? (Yes = 1, No = 0)</label>
+                        <input type="text" name="EXERCISE" required>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-field">
+                        <label for="HEART_DISEASE">Do you have Heart Disease or have ever had a Heart Attack? (Yes = 1, No = 0)</label>
+                        <input type="text" name="HEART_DISEASE" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="KIDNEY">Do you have Kidney Disease? (Yes = 1, No = 0)</label>
+                        <input type="text" name="KIDNEY" required>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-field">
+                        <label for="DEPRESSION">Have you ever been told you have a Depressive Disorder? (Yes = 1, No = 0)</label>
+                        <input type="text" name="DEPRESSION" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="HLTHPLN1">Do you have any kind of health care coverage? (Yes = 1, No = 0)</label>
+                        <input type="text" name="HLTHPLN1" required>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-field">
+                        <label for="SEX">What is your Sex at birth? (Male = 1, Female = 0)</label>
+                        <input type="text" name="SEX" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="SMOKER">Have you smoked 100 cigarettes, or ever used an e-cigarette in your life? (Yes = 1, No = 0)</label>
+                        <input type="text" name="SMOKER" required>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-field">
+                        <label for="STROKE">Have you ever had a Stroke? (Yes = 1, No = 0)</label>
+                        <input type="text" name="STROKE" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="WALK_ISSUE">Do you have difficulty walking or climbing stairs? (Yes = 1, No = 0)</label>
+                        <input type="text" name="WALK_ISSUE" required>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-field">
+                        <label for="DRINK">Do you drink more than 14 alcoholic beverages per week (Male), or 7 drinks per week (Female)? (Yes = 1, No = 0)</label>
+                        <input type="text" name="DRINK" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="GENHLTH">On a scale of 1 (Excellent) to 5 (Poor), how would you rate your general health?</label>
+                        <input type="text" name="GENHLTH" required>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-field">
+                        <label for="ETHNICITY">What is your ethnicity? (1 = White, 2 = Black, 3 = Asian, 4 = Native, 5 = Hispanic, 6 = Other)</label>
+                        <input type="text" name="ETHNICITY" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="EDUCATION">What is your level of education? (1 = No High School, 2 = High School Graduate, 3 = Some College, 4 = Graduated College)</label>
+                        <input type="text" name="EDUCATION" required>
+                    </div>
+                </div>
+            <div class="submit-btn">
+                <input type="submit" class="btn" value="Predict">
+            </div>
+        </form>
+            
+        <div class="result">
+            {% if pred %}
+            {{ pred }}
+            {% endif %}
+        </div>
+    </div>
+    <a href="/">Back to home</a><br>
+</body>
+            
+</html>

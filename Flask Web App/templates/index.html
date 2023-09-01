@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Applied ML Capstone - Liam</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding-top: 20px;
+            background-color: #1EA6BA;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            margin-left: 50px;
+            margin-right: 50px;
+            text-align: center;
+            color: #032624;
+            background-color: #F2FAFF;
+            border-radius: 25px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #42cceb;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #032624;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to My Capstone Project!</h1>
+        <p>This app uses a binary classifier which predicts diabetes risk based upon 20 relevant risk factors.</p>
+        <p>This classifier was developed using data from the BRFSS 2020 survey and the accompanying notebook can be found <a href="https://github.com/liamconeill/DiabetesClassifier_Capstone">on my GitHub.</a></p>
+        <p>Input your answers to these questions and the model will predict whether or not you should seek medical advice.</p>
+        <a href="{{ url_for('predict') }}">Answer the Questions here!</a><br>
+    </div>
+</body>
+
+</html>
