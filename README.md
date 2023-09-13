@@ -58,8 +58,3 @@ If you don't currently have the dependencies installed, and you aren't familiar 
 #### Thanks for taking the time to look at my project. If you have any questions you can reach me at:
 - liamcamerononeill@gmail.com
 - <a href="https://www.linkedin.com/in/liamconeill/">LinkedIn</a>
-
-
-```python
-
-```
