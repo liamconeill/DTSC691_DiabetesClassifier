@@ -1,4 +1,4 @@
-![CapReadme.png](attachment:CapReadme.png)
+![CapReadme.png](./CapReadme.png)
 
 # Why did I make this?
 
@@ -18,7 +18,7 @@ With the project notebook you can follow all the steps used for the project:
 
 You can try the application yourself by following the steps listed under "Flask Application". When you navigate to the survey page, input your answers to the questions, and click the predict button!
 
-![FlaskDemo.gif](attachment:FlaskDemo.gif)
+![FlaskDemo.gif](./FlaskDemo.gif)
 
 ## Data Source
 
